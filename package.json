@@ -1,0 +1,23 @@
+{
+  "name": "puppeteer-test",
+  "version": "1.0.0",
+  "description": "随便玩玩Chrome 浏览器无头模式的工具库 Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a1314xu/puppeteer-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a1314xu/puppeteer-test/issues"
+  },
+  "homepage": "https://github.com/a1314xu/puppeteer-test#readme",
+  "dependencies": {
+    "puppeteer": "^1.4.0"
+  }
+}
