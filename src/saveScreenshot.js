@@ -22,13 +22,13 @@ const saveScreenshot = async (url, path) => {
     await page.type('.js-password-field', 'imissyou.123', {delay: 100});
     
     await page.click('button.submit')
-    await page.waitForNavigation();
+    await page.waitForNavigation({ waitUntil: 'networkidle0' });
     if (page.url() === 'https://twitter.com/'){
-        
+
     } else {
         await page.type('#challenge_response', '635157329@qq.com', {delay: 100});
         await page.click('#email_challenge_submit');
-        await page.waitForNavigation();
+        await page.waitForNavigation({ waitUntil: 'networkidle0' });
     }
     // 截图: https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagescreenshotoptions
     await page.screenshot({ path });
