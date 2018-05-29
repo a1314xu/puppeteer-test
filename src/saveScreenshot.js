@@ -13,7 +13,7 @@ const saveScreenshot = async (url, path) => {
     // 设置浏览器视窗
     page.setViewport({
         width: 1376,
-        height: 768,
+        height: 3068,
     }); 
     // 地址栏输入网页地址
     await page.goto(url);
