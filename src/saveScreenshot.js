@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
 const saveScreenshot = async (url, path) => {
 
     // 启动浏览器
-    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox',  '--proxy-server=127.0.0.1:1235' ]});
     // 打开页面
     const page = await browser.newPage();
     // 设置浏览器视窗
