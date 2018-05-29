@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
 const saveScreenshot = async (url, path) => {
 
     // 启动浏览器
-    const browser = await puppeteer.launch({headless: false, args: [ '--disable-setuid-sandbox',  '--proxy-server=127.0.0.1:1235' ]});
+    const browser = await puppeteer.launch({args: [ '--no-sandbox', '--disable-setuid-sandbox',  '--proxy-server=127.0.0.1:1235' ]});
     // 打开页面
     const page = await browser.newPage();
     // 设置浏览器视窗
@@ -22,13 +22,13 @@ const saveScreenshot = async (url, path) => {
     await page.type('.js-password-field', 'imissyou.123', {delay: 100});
     
     await page.click('button.submit')
-    await page.waitForNavigation({ waitUntil: 'load' });
+    await page.waitForNavigation();
     if (page.url() === 'https://twitter.com/'){
         
     } else {
         await page.type('#challenge_response', '635157329@qq.com', {delay: 100});
         await page.click('#email_challenge_submit');
-        await page.waitForNavigation({ waitUntil: 'load' });
+        await page.waitForNavigation();
     }
     // 截图: https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagescreenshotoptions
     await page.screenshot({ path });
