@@ -13,7 +13,7 @@ const saveScreenshot = async (url, path) => {
     // 设置浏览器视窗
     page.setViewport({
         width: 1376,
-        height: 3068,
+        height: 5068,
     }); 
     // 地址栏输入网页地址
     await page.goto(url);
@@ -23,6 +23,7 @@ const saveScreenshot = async (url, path) => {
     
     await page.click('button.submit')
     await page.waitForNavigation({ waitUntil: 'networkidle0' });
+    await page.waitFor(5000);
     if (page.url() === 'https://twitter.com/'){
 
     } else {
