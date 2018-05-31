@@ -11,7 +11,8 @@ let transporter = nodemailer.createTransport({
         pass: 'imissyou.123' // QQ邮箱需要使用授权码
     }
 });
-const imgPath = path.join(__dirname, 'google.png');
+const imgPath1 = path.join(__dirname, 'pic1.png');
+const imgPath2 = path.join(__dirname, 'pic2.png');
 // 设置邮件内容（谁发送什么给谁）
 let mailOptions = {
     from: '"叹希奇" <18355552758@163.com>', // 发件人
@@ -19,13 +20,19 @@ let mailOptions = {
     cc: 'englishlearner94@gmail.com',
     subject: 'Hello ✔', // 主题
     text: '这是一封来自未来的测试邮件', // plain text body
-    html: '<b>这是一封来自未来的测试邮件</b><img src="cid:img1" id="img1">', // html body
+    html: '<b>这是一封来自未来的测试邮件</b><img src="cid:img1" id="img1"><img src="cid:img2" id="img2">', // html body
     // 下面是发送附件，不需要就注释掉
-    attachments: [{
-        filename: '截图.png',
-        cid: 'img1',
-        path: imgPath
-    }]
+    attachments: [
+        {
+            filename: '截图1.png',
+            cid: 'img1',
+            path: imgPath1
+        },
+        {
+            filename: '截图2.png',
+            cid: 'img2',
+            path: imgPath2
+        }]
 };
 
 const sendMail = () => {

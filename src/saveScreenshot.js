@@ -23,7 +23,6 @@ const saveScreenshot = async (url, path) => {
     
     await page.click('button.submit')
     await page.waitForNavigation({ waitUntil: 'networkidle0' });
-    await page.waitFor(5000);
     if (page.url() === 'https://twitter.com/'){
 
     } else {
@@ -31,8 +30,13 @@ const saveScreenshot = async (url, path) => {
         await page.click('#email_challenge_submit');
         await page.waitForNavigation({ waitUntil: 'networkidle0' });
     }
-    // 截图: https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagescreenshotoptions
-    await page.screenshot({ path });
+    const path1 = path[0], path2 = path[1];
+    
+    await page.screenshot({ path: path1 });
+    await page.goto('https://twitter.com/NN711_1');
+    await page.waitForNavigation({ waitUntil: 'networkidle0' });
+    await page.waitFor(3000);
+    await page.screenshot({ path: path2 });
     // 关闭浏览器
     await browser.close();
 };
